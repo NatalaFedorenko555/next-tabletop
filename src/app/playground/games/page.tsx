@@ -9,23 +9,31 @@ const Games = async () => {
       <main className="max-w-4xl mx-auto px-4">
         <h1 className="text-3xl font-semibold text-emerald-900 mb-6">Games</h1>
 
-        {games.length === 0 ? (
-          <p className="text-emerald-900/80">No games found.</p>  
-        ) : (
-          <ul className="grid gap-4">
-            {games.map((game) => (
-              <li
-                key={game.id}
-                className="bg-white/90 rounded-lg shadow p-4 hover:shadow-md transition-shadow"
+        <ul className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {games.map((game) => (
+            <li
+              key={game.id}
+              className="bg-white rounded-lg shadow-sm p-5 hover:shadow-md transition-shadow duration-150"
+            >
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 truncate">
+                {game.title}
+              </h3>
+              <p
+                className="text-sm text-gray-600 overflow-hidden"
+                style={{
+                  display: "-webkit-box",
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: "vertical",
+                }}
               >
-                <h3 className="text-lg font-medium text-emerald-900">{game.title}</h3>
-                <p className="mt-1 text-sm text-emerald-800 max-h-14 overflow-hidden">
-                  {game.description}
+                {game.description}
                 </p>
+
+        
               </li>
             ))}
           </ul>
-        )}
+        
       </main>
     </div>
   );
