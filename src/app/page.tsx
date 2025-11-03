@@ -4,6 +4,7 @@
       <h1 className="text-black dark:text-white">
         Welcome to the world of tabletops games!
       </h1>
+      <p></p>
     </div>
   );
 }
