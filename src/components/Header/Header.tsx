@@ -71,7 +71,9 @@ export default function Header() {
           Events
         </Link>
 
-        <Link href={"/login"} className="text-background hover:text-foreground transition-colors">Sign in</Link>
+        <Link href={"/login"} className="text-background hover:text-foreground
+         transition-colors">
+          Sign in</Link>
 
 
         <Link
@@ -80,6 +82,19 @@ export default function Header() {
         >
           Prorile
         </Link>
+          <Link
+            href={"/todos/new"}
+            className="text-background hover:text-foreground transition-colors"
+          >
+            Add todo
+          </Link>
+        <Link
+            href={"/todos"}
+            className="text-background hover:text-foreground transition-colors"
+          >
+            Todos
+        </Link>
+        
         <GoogleSignIn/>
         </div>
         <ThemeToggle />

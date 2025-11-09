@@ -6,6 +6,7 @@ import { users } from "@/db/schema";
 import { authOptions } from "@/lib/auth/auth-options";
 import { eq } from "drizzle-orm";
 import { getServerSession } from "next-auth";
+import { updateTag } from "next/cache";
 import z from "zod";
 
 const insertTodoSchema = z.object({
@@ -31,4 +32,6 @@ export default async function createTodo(formData: FormData) {
   const raw = Object.fromEntries(formData.entries());
   const todo = insertTodoSchema.parse(raw);
   await db.insert(todos).values({ ...todo, userId: user?.id });
+   // revalidatePath("/todos");
+  updateTag("todos");
 }
